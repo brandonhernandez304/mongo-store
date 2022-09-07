@@ -22,7 +22,7 @@
     </div>
     <ul>
         <form action="/store/<%= product.name %>?_method=DELETE" method="POST">
-            <input type="submit" value="DELETE">
+            <input type="submit" value="Delete this item">
         </form>
         <li>
             <h3>Description:</h3>
@@ -30,11 +30,11 @@
         </li>
         <li>
             <h3>Price:</h3>
-            <%= product.price %>
+            $<%= product.price %>
         </li>
         <li>
             <h3>Left in Stock:</h3>
-            <%= product.qty%>
+            <%= product.qty%> units
         </li>
     </ul>
     <nav>
