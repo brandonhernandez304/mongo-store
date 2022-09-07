@@ -1,23 +1,46 @@
-
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title><%= product.name %></title>
-	</head>
-	<body>
-		<nav>
-			<a href="/store">Back to Store Index</a>
-		</nav>
-		<h1><%=product.name %></h1>
-        <div class="photo">
-            <img src=<%=product.img %> alt="">
-        </div>
-		Description: <%= product.description%>
-        <img src=""
-        Price: <%= product.price%>
-        Quantity: <%= product.qty%>/>
-	</body>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        <%= product.name %>
+    </title>
+</head>
+
+<body>
+    <nav>
+        <a href="/store">Back to Store</a>
+    </nav>
+    <h1>
+        <%=product.name %>
+    </h1>
+    <div class="photo">
+        <img src=<%=product.img %> alt="">
+    </div>
+    <ul>
+        <form action="/store/<%= product.name %>?_method=DELETE" method="POST">
+            <input type="submit" value="DELETE">
+        </form>
+        <li>
+            <h3>Description:</h3>
+            <%= product.description%>
+        </li>
+        <li>
+            <h3>Price:</h3>
+            <%= product.price %>
+        </li>
+        <li>
+            <h3>Left in Stock:</h3>
+            <%= product.qty%>
+        </li>
+    </ul>
+    <nav>
+        <a href="/store/:id/edit">Something wrong? Edit!</a>
+
+    </nav>
+</body>
+
 </html>
