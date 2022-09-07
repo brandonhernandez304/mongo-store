@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Mongoose Store</title>
+</head>
+
+<body>
+
+    <nav>
+        <a href="/store/new">Add a New Item</a>
+    </nav>
+    <h1>Mongoose Store Index Page</h1>
+    <ul>
+        <% products.forEach(product=> { %>
+            <li>
+                <!-- making a link to specific item (id) and displaying the name -->
+                <a href="/store/<%=product._id; %>">
+                    <%=product.name; %>
+                </a>
+            </li>
+            <% }) %>
+    </ul>
+</body>
+
+</html>
