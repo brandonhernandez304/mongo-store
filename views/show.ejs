@@ -21,7 +21,7 @@
         <img src=<%=product.img %> alt="">
     </div>
     <ul>
-        <form action="/store/<%= product.name %>?_method=DELETE" method="POST">
+        <form action="/store/<%= product._id %>?_method=DELETE" method="POST">
             <input type="submit" value="Delete this item">
         </form>
         <li>
@@ -38,7 +38,9 @@
         </li>
     </ul>
     <nav>
-        <a href="/store/:id/edit">Something wrong? Edit!</a>
+        <a href="/store/">Purchase</a>
+
+        <a href="/store/<%=product._id %>/edit">Something wrong? Edit!</a>
 
     </nav>
 </body>
