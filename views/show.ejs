@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="/stylesheet.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
         <%= product.name %>
@@ -38,8 +39,11 @@
         </li>
     </ul>
     <nav>
-        <a href="/store/">Purchase</a>
-
+        <% if (product.qty > 0) { %>
+        <form action="<%= product.qty -=1; %> ">
+            <input type="submit" value="Purchase">
+        </form>
+        <% } %>
         <a href="/store/<%=product._id %>/edit">Something wrong? Edit!</a>
 
     </nav>

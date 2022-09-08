@@ -4,7 +4,15 @@ const productRouter = express.Router();
 const Product = require('../models/product')
 
 // ROUTES
+// SEED
+const productSeed = require('../models/productSeed');
+productRouter.get('/seed', (req, res) => {
+    Product.deleteMany({}, (error, allProducts) => {});
 
+    Product.create(productSeed, (error, data) => {
+        res.redirect('/store');
+    });
+});
 // I N D U C E S
 
 // INDEX
@@ -27,24 +35,16 @@ productRouter.delete('/:id', (req, res) => {
 });
 
 // UPDATE
-productRouter.put('/:id', (req, res) => {
-    Product.findByIdAndUpdate(req.params.id, req.body, {
-        new: true
-    }, (error, updatedProduct) => {
-        res.redirect(`/store/${req.params.id}`);
-    });
-});
+productRouter.put('/:id', (req,res)=>{
+    Product.findByIdAndUpdate(req.params.qty, (err, data)=>{
+        res.redirect('/store');
+    })
+})
+
 // CREATE
 
 
 productRouter.post('/', (req, res) => {
-    // if (req.body.completed === 'on') {
-    //     //if checked, req.body.completed is set to 'on'
-    //     req.body.completed = true;
-    // } else {
-    //     //if not checked, req.body.completed is undefined
-    //     req.body.completed = false;
-    // }
     Product.create(req.body, (error, createdProduct) => {
         res.redirect("/store");
     });

@@ -22,7 +22,7 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"))
 app.use("/store", productsRouter)
-
+app.use(express.static("public"))
 // LISTENER
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
